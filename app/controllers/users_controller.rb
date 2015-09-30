@@ -5,12 +5,12 @@ class UsersController < ApplicationController
   before_action :admin_user, only: :destroy
 
   def index
-    #@users = User.all.paginate(:page => params[:page], :per_page => 20)
     @users = User.paginate(page: params[:page])
   end
 
   def show
     @user = User.find(params[:id])
+    @micropost = current_user.microposts.build
     @microposts = @user.microposts.paginate(page: params[:page])
   end
 
@@ -84,7 +84,7 @@ class UsersController < ApplicationController
     # Confirms the correct user.
     def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
+      redirect_to @user unless current_user?(@user)
     end
 
     # Confirms an admin user.
