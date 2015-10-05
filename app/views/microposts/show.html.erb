@@ -21,5 +21,15 @@
                                          data: { confirm: "You sure?" } %>
       <% end %>
     </span>
+    <span class="comment_count">
+      <%= pluralize(@micropost.comments.count, "Comment") %>
+      <% @comments.each do |comment| %>
+      <div class="comment">
+        <p><%= comment.user.name %></p>
+        <p><%= comment.content %></p>
+      </div>
+      <% end %>
+      <%= render 'comments/form' %>
+    </span>
   </div>
 </div>

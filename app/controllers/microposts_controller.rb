@@ -3,13 +3,14 @@ class MicropostsController < ApplicationController
   before_action :correct_user, only: :destroy
 
   def index
-    
+    #@micropost = Micropost.find(params[:id])
     @microposts = Micropost.paginate(page: params[:page])
   end
 
   def show
   #  @user = User.find(params[:id])
     @micropost = Micropost.find(params[:id])
+    @comments = Comment.where(micropost_id: @micropost)
   end
 
   def create
