@@ -1,0 +1,17 @@
+<% if logged_in? %>
+  <div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<section class="micropost_form">
+				<%= render 'shared/micropost_form' %>
+			</section>
+		</div>
+    </div>
+  </div>
+<% else %>
+  <div class="center jumbotron">
+    <p>Share your inspiration and see what's other inspiring others</p>
+
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-primary" %>
+  </div>
+
+<% end %>

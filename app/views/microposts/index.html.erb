@@ -1,10 +1,4 @@
 
-  <div class="center jumbotron">
-    <p>Share your inspiration and see what's other inspiring others</p>
-
-    <%= link_to "Sign up now!", signup_path, class: "btn btn-primary" %>
-  </div>
-
   <div id="posts">
     <%= @microposts.each do |micropost| %>
     <div class="post">

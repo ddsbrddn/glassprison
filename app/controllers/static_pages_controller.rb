@@ -17,4 +17,8 @@ class StaticPagesController < ApplicationController
 
   def contact
   end
+
+  def submit
+    @micropost = current_user.microposts.build
+  end
 end
