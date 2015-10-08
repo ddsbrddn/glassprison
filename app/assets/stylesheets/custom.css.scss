@@ -76,6 +76,10 @@ p {
   }
 }
 
+.dropdown:hover .dropdown-menu {
+display: block;
+}
+
 /* footer */
 
 footer {
@@ -359,3 +363,7 @@ span.picture {
 		}
 	}
 }
+
+/* MISC. */
+.submission-image-container .content img { width: 100% ;}
+.user_info img.gravatar { max-width: 20px; }

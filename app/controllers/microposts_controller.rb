@@ -1,6 +1,7 @@
 class MicropostsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :logged_in_user, only: [:create, :destroy, :upvote, :downvote]
   before_action :correct_user, only: :destroy
+
 
   def index
     #@micropost = Micropost.find(params[:id])
@@ -8,7 +9,7 @@ class MicropostsController < ApplicationController
   end
 
   def show
-  #  @user = User.find(params[:id])
+
     @micropost = Micropost.find(params[:id])
     @comments = Comment.where(micropost_id: @micropost)
   end
@@ -28,6 +29,18 @@ class MicropostsController < ApplicationController
     @micropost.destroy
     flash[:success] = "Micropost deleted"
     redirect_to request.referrer || root_url
+  end
+
+  def upvote
+    @micropost = Micropost.find(params[:id])
+    @micropost.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @micropost = Micropost.find(params[:id])
+    @micropost.downvote_by current_user
+    redirect_to :back
   end
 
   private
