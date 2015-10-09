@@ -367,3 +367,10 @@ span.picture {
 /* MISC. */
 .submission-image-container .content img { width: 100% ;}
 .user_info img.gravatar { max-width: 20px; }
+.comment_count {
+    border-top: 5px solid #eaeaea;
+    float: left;
+    margin: 2em 0 0;
+    margin-right: 3%;
+    width: 65%;
+}

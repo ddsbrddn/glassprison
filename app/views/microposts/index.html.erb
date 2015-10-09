@@ -7,13 +7,16 @@
       </div>
       <div class="post_content">
         <%= micropost.content %>
-        <p><%= micropost.comments.count %> Comments</p>
+        <p class="buttons">
+          <span class="glyphicon glyphicon-comment"> <%= micropost.comments.count %>
+          </span>
+          <span class="glyphicon glyphicon-heart"> <%= micropost.get_likes.size %>
+          </span>
+        </p>
       </div>
 			<section class="user_info">
 	        <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
 	        <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
-
-          <%= micropost.get_likes.size %> Likes          
 	    </section>
 
     </div>
