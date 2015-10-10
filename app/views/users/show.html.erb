@@ -14,16 +14,28 @@
 
   </aside>
   <div class="col-md-8">
-    
+
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
         <div id="posts">
           <%= @microposts.each do |micropost| %>
-          <div class="post">
-            <div class="post_image">
-              <%= link_to (image_tag micropost.picture.url), micropost if micropost.picture? %>
+          <div class="col-md-6 col-xs-6 post">
+            <div class="thumbnail content">
+              <%= link_to (image_tag micropost.picture.url, class: "post_image img-responsive"), micropost if micropost.picture? %>
+              <span class="timestamp">
+                <span class="glyphicon glyphicon-comment"><%= micropost.comments.count %>
+                </span>
+                <span class="glyphicon glyphicon-heart"><%= micropost.get_likes.size %>
+                </span>
+                <% if current_user?(micropost.user) %>
+                  <%= link_to "delete", micropost, method: :delete,
+                                                   data: { confirm: "You sure?" } %>
+                <% end %>
+                </p>
+              </span>
             </div>
+
             <div class="post_content">
               <%= micropost.content %>
               <p><%= micropost.comments.count %> Comments</p>

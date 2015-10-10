@@ -1,24 +1,25 @@
-
-  <div id="posts">
-    <%= @microposts.each do |micropost| %>
-    <div class="post">
-      <div class="post_image">
-        <%= link_to (image_tag micropost.picture.url), micropost if micropost.picture? %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="row">
+        <ol id="posts" class="microposts">
+          <%= @microposts.each do |micropost| %>
+          <li id="micropost-<%= micropost.id %>" class="col-md-6 col-xs-6 post">
+            <div class="thumbnail content">
+              <%= link_to (image_tag micropost.picture.url, class: "img-responsive"), micropost if micropost.picture? %>
+              <span class="timestamp">
+                <span class="glyphicon glyphicon-comment"> <%= micropost.comments.count %>
+                </span>
+                <span class="glyphicon glyphicon-heart"> <%= micropost.get_likes.size %>
+                </span>
+              </span>
+            </div>
+            <section class="user_info">
+                <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
+                <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
+            </section>
+          </li>
+          <% end %>
+        </ol>
       </div>
-      <div class="post_content">
-        <%= micropost.content %>
-        <p class="buttons">
-          <span class="glyphicon glyphicon-comment"> <%= micropost.comments.count %>
-          </span>
-          <span class="glyphicon glyphicon-heart"> <%= micropost.get_likes.size %>
-          </span>
-        </p>
-      </div>
-			<section class="user_info">
-	        <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
-	        <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
-	    </section>
-
     </div>
-    <% end %>
   </div>
