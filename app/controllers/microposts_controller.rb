@@ -4,17 +4,20 @@ class MicropostsController < ApplicationController
 
 
   def index
+    if params[:tag]
+      @microposts = Micropost.tagged_with(params[:tag])
+    else
     @microposts = Micropost.paginate(page: params[:page], :per_page => 12)
-    
+    end
   end
 
   def show
-
     @micropost = Micropost.find(params[:id])
     @comments = Comment.where(micropost_id: @micropost)
   end
 
   def create
+    #@micropost = Micropost.new(:name => "")
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
       flash[:success] = "Micropost created!"
@@ -46,7 +49,7 @@ class MicropostsController < ApplicationController
   private
 
     def micropost_params
-      params.require(:micropost).permit(:content, :picture)
+      params.require(:micropost).permit(:content, :picture, :name, :tag_list)
     end
 
     def correct_user

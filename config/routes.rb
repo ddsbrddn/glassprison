@@ -21,8 +21,10 @@ Rails.application.routes.draw do
     member do
       get "like", to: "microposts#upvote"
       get "dislike", to: "microposts#downvote"
-    end  
+    end
     resources :comments
   end
   resources :relationships,       only: [:create, :destroy]
+
+  get 'tags/:tag', to: 'microposts#index', as: :tag
 end

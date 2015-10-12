@@ -26,9 +26,10 @@
           <span class="user"><%= link_to @micropost.user.name, @micropost.user %></span>
       </section>
       <section class="stats">
-
+        <%= raw @micropost.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>        
 
       </section>
+
     </div>
     <div class="comment_count">
       <%= pluralize(@micropost.comments.count, "Comment") %>

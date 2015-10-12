@@ -1,4 +1,6 @@
 class Micropost < ActiveRecord::Base
+  acts_as_taggable # Alias for acts_as_taggable_on :tags
+  acts_as_taggable_on :name, :tag_list
   acts_as_votable
   belongs_to :user
   default_scope -> { order(created_at: :desc) }
