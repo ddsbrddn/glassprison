@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @micropost = current_user.microposts.build
+    #@micropost = current_user.microposts.build
     @microposts = @user.microposts.paginate(page: params[:page])
   end
 

@@ -323,6 +323,9 @@ span.picture {
 #posts .post {
   margin-bottom: 30px;
 }
+#posts .thumbnail {
+  margin-bottom: 10px;
+}
 
 /* MISC. */
 .submission-image-container .content img { width: 100% ;}
@@ -333,4 +336,13 @@ span.picture {
     margin: 2em 0 0;
     margin-right: 3%;
     width: 65%;
+}
+.profile-container {
+  margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    img.gravatar {
+      float: none;
+      max-width: 50px !important;
+    }
 }

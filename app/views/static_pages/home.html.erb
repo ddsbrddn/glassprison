@@ -14,8 +14,14 @@
         </section>
       </div>
       <% end %>
+      <% if current_user.following.count == 0 %>
+      <h3 class="text-center">You aren’t following anyone yet.<br/>
+<small>Explore the links above to discover designs and artists.
+The latest designs from artists you follow will appear here.</small></h3>
+      <% else %>
        <h3>Design from people you've followed</h3>
         <%= render 'shared/feed' %>
+      <% end %>
     </div>
   </div>
 <% else %>
@@ -38,6 +44,10 @@
                 </span>
               </span>
             </div>
+            <section class="user_info">
+                <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
+                <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
+            </section>
           </li>
           <% end %>
         </ol>
