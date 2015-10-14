@@ -1,8 +1,30 @@
 <li>
-  <%= gravatar_for user, size: 50 %>
-  <%= link_to user.name, user %>
-  <% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to "delete", user, method: :delete,
+<%= gravatar_for user, size: 50 %>
+<%= link_to user.name, user %>
+<% if current_user.admin? && !current_user?(user) %>
+|
+<%= link_to "delete", user, method: :delete,
                                   data: { confirm: "You sure?" } %>
-  <% end %>  
+<% end %>
+<div class="col-md-2">
+	<% unless current_user?(user) %>
+	<% form_id = user.id.to_s %>
+
+	<div id="follow_form_<%= form_id %>">
+		<% if current_user.following?(user) %>
+  		<%= form_for(current_user.active_relationships.find_by(followed_id: user.id),
+                 html: { method: :delete },
+                 remote: true) do |f| %>
+  		<%= f.submit "Unfollow", class: "btn" %>
+		  <% end %>
+		<% else %>
+  		<%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
+  		<div><%= hidden_field_tag :followed_id, user.id %></div>
+  		<%= f.submit "Follow", class: "btn btn-primary" %>
+  		<% end %>
+		<% end %>
+	</div>
+	<% end %>
+
+</div>
 </li>

@@ -1,16 +1,30 @@
 <%= form_for(@micropost, html: { multipart: true }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <span class="picture">
-    <%= f.file_field :picture, accept: 'image/jpeg, image/gif, image/png' %>
-  </span>
-  <div class="field">
-    <%= f.text_area :content, placeholder: "Compose new micropost..." %>
+  <section>
+        <h4>Submitting To</h4>
+        <p><a href="#"><img alt="Threadless" width="290" src="https://cdn-media.threadless.com/challenges/bt.jpg"></a></p>
+  </section>
+  <hr>
+  <section class="picture">
+        <h4>ADD YOUR IMAGE</h4>
+        <p>Choose your image file to display your design. Your image must be in JPG format (RGB mode not CMYK), 1200 pixels wide x 1200 pixels tall.</p>
+        <%= f.file_field :picture, accept: 'image/jpeg, image/gif, image/png', class: "image-upload" %>
+  </section>
+  <hr>
+  <h4>INFO</h4>
+  <div class="form-group">
+    <%= f.label "Design title *" %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Your design's story *" %><br />
+    <%= f.text_area :content, placeholder: "Tell us your inspiration, where you were when thought of the idea, why it's personal, etc." %>
   </div>
   <div class="field">
     <%= f.label :tag_list, "Tags (separated by commas)" %><br />
-    <%= f.text_field :tag_list %>
+    <%= f.text_field :tag_list, placeholder: "Things in or about your design not in the title" %>
   </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
+  <%= f.submit "Submit my design", class: "btn btn-primary" %>
 
 <% end %>
 
