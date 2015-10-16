@@ -2,7 +2,7 @@
 
   <div class="col-md-8 col-md-offset-2">
     <div class="submission-image-container">
-      <h3><%= @micropost.title.upcase %><small>  by <%= link_to @micropost.user.name, @micropost.user %></small></h3>
+      <h3><%= @micropost.title.upcase %><small> Design by <%= link_to @micropost.user.name, @micropost.user %></small></h3>
       <span class="content">
         <%= image_tag @micropost.picture.url if @micropost.picture? %>
       </span>
