@@ -27,4 +27,14 @@
 	<% end %>
 
 </div>
+  <% if false %>
+  <div class="micropost">
+    <%= @microposts.each do |micropost| %>
+    <div class="thumbnail content">
+      <%= link_to (image_tag micropost.picture.url, class: "img-responsive"), micropost if micropost.picture? %>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+
 </li>

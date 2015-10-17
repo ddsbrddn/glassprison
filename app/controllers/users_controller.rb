@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     #@micropost = current_user.microposts.build
-    @microposts = @user.microposts.paginate(page: params[:page])
+    @microposts = @user.microposts.paginate(:page => params[:page])
   end
 
   def new
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "Welcome to the Glass Prison!"
-      redirect_to @user
+      redirect_to root_url
     else
       render 'new'
     end

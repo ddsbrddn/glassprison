@@ -27,9 +27,10 @@ The latest designs from artists you follow will appear here.</small></h3>
 <% else %>
   <div class="center jumbotron">
     <p>Share your inspiration and see what's other inspiring others</p>
+    <%= link_to "Learn", about_path, class: "btn btn-default" %>
     <%= link_to "Sign up now!", signup_path, class: "btn btn-primary" %>
   </div>
-  <div class="row">
+  <div class="container">
     <div class="col-md-8 col-md-offset-2">
       <div class="row">
         <ol id="posts" class="microposts">

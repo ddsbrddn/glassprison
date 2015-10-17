@@ -23,12 +23,10 @@ class StaticPagesController < ApplicationController
   end
 
   def submit
+    if logged_in?
     @micropost = current_user.microposts.build
-    if @micropost.save
-      flash[:success] = "Micropost created!"
-      redirect_to @micropost
     else
-      render 'static_pages/submit'
     end
+
   end
 end

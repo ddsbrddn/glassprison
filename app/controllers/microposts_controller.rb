@@ -7,7 +7,7 @@ class MicropostsController < ApplicationController
     if params[:tag]
       @microposts = Micropost.tagged_with(params[:tag])
     else
-    @microposts = Micropost.paginate(page: params[:page], :per_page => 12)
+    @microposts = Micropost.paginate(page: params[:page], :per_page => 20)
     end
   end
 
@@ -20,7 +20,7 @@ class MicropostsController < ApplicationController
     #@micropost = Micropost.new(:name => "")
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
-      flash[:success] = "Micropost created!"
+      flash[:success] = "Post created!"
       redirect_to @micropost
     else
       @feed_items = []
@@ -31,7 +31,7 @@ class MicropostsController < ApplicationController
   def destroy
     @micropost.destroy
     flash[:success] = "Micropost deleted"
-    redirect_to request.referrer || root_url
+    redirect_to @micropost
   end
 
   def upvote
