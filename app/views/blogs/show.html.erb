@@ -3,7 +3,7 @@
 		<h3><%= @blog.title %></h3>
 
 		<p class="date">
-			Published <%= time_ago_in_words(@blog.created_at) %> ago
+			Published <%= time_ago_in_words(@blog.created_at) %> ago <% if current_user.admin? && !current_user?(@user) %>| <%= link_to 'Edit', edit_blog_path(@blog) %> | <%= link_to 'Delete', blog_path(@blog), method: :delete, data: { confirm: "Are you sure?"} %> <% end %>
 		</p>
 
 		<p class="body">
