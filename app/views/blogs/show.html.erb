@@ -1,0 +1,9 @@
+<h3><%= @blog.title %></h3>
+
+<p class="date">
+	Published <%= time_ago_in_words(@blog.created_at) %> ago
+</p>
+
+<p class="body">
+	<%= @blog.body %>
+</p>

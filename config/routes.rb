@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
   get 'submit'  => 'static_pages#submit'
+  #get 'blog'    => 'blog_posts#index'
   get 'signup'  => 'users#new'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
@@ -17,6 +18,8 @@ Rails.application.routes.draw do
     end
   end
 
+  #resources :blog, only: [:index, :new, :create, :show]
+  resources :blogs
   resources :microposts, only: [:create, :destroy, :show, :index] do
     member do
       get "like", to: "microposts#upvote"

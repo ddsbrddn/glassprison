@@ -1,0 +1,6 @@
+<% @blogs.each do |blog| %>
+	<div class="post_wrapper">
+		<h3 class="title"><%= link_to blog.title, blog %></h3>
+		<p class="date"><%= blog.created_at.strftime("%B, %d, %Y") %></p>
+	</div>
+<% end %>
