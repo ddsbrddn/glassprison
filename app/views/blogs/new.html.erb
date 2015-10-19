@@ -1,14 +1,28 @@
-<h3>New Blog Post</h3>
+<div class="container">
+	<div class="col-md-8 col-md-offset-2">
+		<h3>New Blog Post</h3>
 
-<%= form_for :blog, url: blogs_path do |f| %>
-	<div class="form-group">
-		<%= f.label "Title" %>
-		<%= f.text_field :title %>
-	</div>
-	<div class="form-group">
-		<%= f.label "body" %>
-		<%= f.text_area :body %>
-	</div>
+		<%= form_for :blog, url: blogs_path do |f| %>
+			<% if @blog.errors.any? %>
+				<div id="errors">
+					<h4><%= pluralize(@blog.errors.count, "error") %> prevented this post from saving</h4>
+					<ul>
+						<% @blog.errors.full_messages.each do |msg| %>
+							<li><%= msg %></li>
+						<% end %>
+					</ul>
+				</div>
+			<% end %>
+			<div class="form-group">
+				<%= f.label "Title" %>
+				<%= f.text_field :title %>
+			</div>
+			<div class="form-group">
+				<%= f.label "body" %>
+				<%= f.text_area :body %>
+			</div>
 
-	<%= f.submit "Publish Post", class: "btn btn-primary" %>
-<% end %>
+			<%= f.submit "Publish Post", class: "btn btn-primary" %>
+		<% end %>
+	</div>
+</div>
