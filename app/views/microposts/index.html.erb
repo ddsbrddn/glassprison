@@ -2,7 +2,7 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="row">
         <ol id="posts" class="microposts">
-          <%= @microposts.each do |micropost| %>
+          <% @microposts.each do |micropost| %>
           <li id="micropost-<%= micropost.id %>" class="col-md-6 col-xs-6 post">
             <div class="thumbnail content">
               <%= link_to (image_tag micropost.picture.url, class: "img-responsive"), micropost if micropost.picture? %>
@@ -21,6 +21,6 @@
           <% end %>
         </ol>
       </div>
-    <%= will_paginate @users %>
+    <%= will_paginate @microposts %>
     </div>
   </div>

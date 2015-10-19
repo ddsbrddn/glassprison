@@ -37,15 +37,29 @@
       <% @comments.each do |comment| %>
       <div class="comment user_info">
         <div class="media-left">
-          <%= link_to gravatar_for(@micropost.user, size: 50), @micropost.user %>
+          <%= link_to gravatar_for(@micropost.user, size: 50), comment.user %>
         </div>
         <div class="media-body">
           <h5 class="media-heading"><%= link_to comment.user.name, comment.user %></h5>
           <p><%= comment.content %></p>
         </div>
+
       </div>
       <% end %>
-      <%= render 'comments/form' %>
+
+      <% if logged_in? %>
+      <div class="comment user_info">
+        <div class="media-left">
+          <%= link_to gravatar_for(@micropost.user, size: 50) %>
+        </div>
+        <div class="media-body">
+          <h5 class="media-heading"><%= link_to current_user.name %></h5>
+          <%= render 'comments/form' %>
+        </div>
+      </div>
+      <% end %>
+      
     </div>
+
   </div>
 </div>

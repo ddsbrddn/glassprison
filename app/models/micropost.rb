@@ -10,7 +10,7 @@ class Micropost < ActiveRecord::Base
   validates :title, presence: true, length: { maximum: 40 }
   validates :content, presence: true, length: { maximum: 140 }
   validate :picture_size
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
 
   private
