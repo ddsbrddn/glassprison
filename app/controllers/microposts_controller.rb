@@ -5,7 +5,7 @@ class MicropostsController < ApplicationController
 
   def index
     if params[:tag]
-      @microposts = Micropost.tagged_with(params[:tag])
+      @microposts = Micropost.tagged_with(params[:tag]).paginate(page: params[:page], :per_page => 20)
     else
     @microposts = Micropost.paginate(page: params[:page], :per_page => 20)
     end

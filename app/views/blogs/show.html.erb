@@ -3,11 +3,38 @@
 		<h3><%= @blog.title %></h3>
 
 		<p class="date">
-			Published <%= time_ago_in_words(@blog.created_at) %> ago <% if current_user.admin? && !current_user?(@user) %>| <%= link_to 'Edit', edit_blog_path(@blog) %> | <%= link_to 'Delete', blog_path(@blog), method: :delete, data: { confirm: "Are you sure?"} %> <% end %>
+			Published <%= time_ago_in_words(@blog.created_at) %> ago <% if current_user.try(:admin?) && !current_user?(@user) %>| <%= link_to 'Edit', edit_blog_path(@blog) %> | <%= link_to 'Delete', blog_path(@blog), method: :delete, data: { confirm: "Are you sure?"} %><% end %>
 		</p>
 
 		<p class="body">
 			<%= @blog.body %>
 		</p>
+
+		<div class="comment_count">
+      <h4><%= pluralize(@blog.blog_comments.count, "Comment") %></h4>
+      <% @blog_comments.each do |comment| %>
+      <div class="comment user_info">
+        <div class="media-left">
+          <%= link_to gravatar_for(comment.user, size: 50), comment.user %>
+        </div>
+        <div class="media-body">
+          <h5 class="media-heading"><%= link_to comment.user.name, comment.user %></h5>
+          <p><%= comment.content %></p>
+        </div>
+      </div>
+      <% end %>
+			<% if logged_in? %>
+			<div class="comment user_info">
+				<div class="media-left">
+					<%#= link_to gravatar_for(current_user.name, size: 50), comment.user %>
+				</div>
+				<div class="media-body">
+					<h5 class="media-heading"><%= link_to current_user.name %></h5>
+					<%= render 'blog_comments/form' %>
+				</div>
+			</div>
+			<% end %>
+		</div>
+
 	</div>
 </div>

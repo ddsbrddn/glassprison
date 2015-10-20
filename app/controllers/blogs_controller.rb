@@ -1,4 +1,5 @@
 class BlogsController < ApplicationController
+
 	def index
 		@blogs = Blog.all.order('created_at DESC')
 	end
@@ -18,6 +19,7 @@ class BlogsController < ApplicationController
 
 	def show
 		@blog = Blog.find(params[:id])
+		@blog_comments = BlogComment.where(blog_id: @blog)
 	end
 
 	def edit
@@ -45,4 +47,5 @@ class BlogsController < ApplicationController
 	def blog_params
 		params.require(:blog).permit(:title, :body)
 	end
+
 end
