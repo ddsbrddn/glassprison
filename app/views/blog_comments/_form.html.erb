@@ -1,6 +1,6 @@
 <%= form_for ([@blog, @blog.blog_comments.build]) do |f| %>
 	<div class="field">
-		<%= f.text_area :content, placeholder: "Reply to thread" %>
+		<%= f.text_area :content %>
 	</div>
-	<%= f.submit "Comment", class: "btn btn-primary" %>
+	<%= f.submit "Post Comment", class: "btn btn-primary" %>
 	<% end %>

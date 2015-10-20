@@ -26,10 +26,10 @@
 			<% if logged_in? %>
 			<div class="comment user_info">
 				<div class="media-left">
-					<%#= link_to gravatar_for(current_user.name, size: 50), comment.user %>
+					<%= link_to gravatar_for(current_user, size: 50), current_user %>
 				</div>
 				<div class="media-body">
-					<h5 class="media-heading"><%= link_to current_user.name %></h5>
+					<h5 class="media-heading"><%= link_to current_user.name, current_user %></h5>
 					<%= render 'blog_comments/form' %>
 				</div>
 			</div>
