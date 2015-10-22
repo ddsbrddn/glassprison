@@ -14,7 +14,7 @@ $gray-medium-light: #eaeaea;
 /* universal */
 
 body {
-  background-color: #f4f4f4;
+  background-color: #ffffff;
 }
 
 section {
@@ -214,6 +214,7 @@ input, textarea, select, .uneditable-input {
 
 input {
   height: auto !important;
+  width: auto;
 }
 
 #error_explanation {
@@ -286,11 +287,6 @@ input {
       height: 285px;
       width: 100%;
     }
-  }
-  .timestamp {
-    color: $gray-light;
-    display: block;
-    /*margin-left: 60px;*/
   }
   .gravatar {
     float: left;
@@ -389,4 +385,22 @@ background-color: #ededed;
   padding: 15px;
   margin: 0 0 8px 0;
   border: 5px solid #e5e5e5;
+}
+.timestamp {
+  color: $gray-light;
+  display: block;
+  font-size: 12px;
+}
+ul.social {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li a {
+    color: $gray-light;
+    &:hover {
+      text-decoration: none;
+      color: $gray-lighter;
+    }
+  }
+
 }

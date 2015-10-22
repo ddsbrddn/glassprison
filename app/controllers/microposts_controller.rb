@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy, :upvote, :downvote]
+  before_action :logged_in_user, only: [:create, :destroy, :upvote]
   before_action :correct_user, only: :destroy
 
 
@@ -40,11 +40,11 @@ class MicropostsController < ApplicationController
     redirect_to :back
   end
 
-  def downvote
-    @micropost = Micropost.find(params[:id])
-    @micropost.downvote_by current_user
-    redirect_to :back
-  end
+  #def downvote
+  #  @micropost = Micropost.find(params[:id])
+  #  @micropost.downvote_by current_user
+  #  redirect_to :back
+  #end
 
   private
 
