@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  mount_uploader :avatar, AvatarUploader
   has_many :microposts, dependent: :destroy
   has_many :active_relationships, class_name:  "Relationship",
                                 foreign_key: "follower_id",
@@ -19,6 +20,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  validate :avatar_size
 
   # Returns the hash digest of the given string.
   def User.digest(string)
@@ -70,6 +72,14 @@ class User < ActiveRecord::Base
   # Returns true if the current user is following the other user.
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  private
+
+  def avatar_size
+    if avatar.size > 2.megabytes
+      errors.add(:avatar, "should be less than 2MB")
+    end
   end
 
 end

@@ -146,6 +146,18 @@ aside {
   }
 }
 
+.avatar {
+  max-width: 50px;
+  height: 50px;
+}
+.uploader {
+  margin-top: 60px;
+  .avatar {
+    max-width: 80px;
+    margin-bottom: 15px;
+  }
+}
+
 .gravatar {
   float: left;
   margin-right: 10px;
@@ -155,7 +167,7 @@ aside {
   margin-top: 15px;
 }
 
-.gravatar {
+.avatar {
   float: left;
   margin-right: 10px;
 }
@@ -190,7 +202,7 @@ aside {
 .user_avatars {
   overflow: auto;
   margin-top: 10px;
-  .gravatar {
+  .avatar {
     margin: 1px 1px;
   }
   a {
@@ -288,11 +300,12 @@ input {
       width: 100%;
     }
   }
-  .gravatar {
+  .avatar {
     float: left;
     margin-right: 10px;
     margin-top: 5px;
-    max-width: 50px;
+    max-width: 20px;
+    height: 20px;
   }
 }
 

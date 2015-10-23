@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151020090722) do
+ActiveRecord::Schema.define(version: 20151023093444) do
 
   create_table "blog_comments", force: :cascade do |t|
     t.text     "content"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 20151020090722) do
     t.string   "password_digest"
     t.string   "remember_digest"
     t.boolean  "admin",           default: false
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
