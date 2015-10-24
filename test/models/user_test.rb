@@ -3,7 +3,7 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
 
   def setup
-    @user = User.new(name: "Dodi Sabaruddin", email: "ddsbrddn@gmail.com",
+    @user = User.new(name: "Example User", email: "user@example.com",
                       password: "foobar", password_confirmation: "foobar")
   end
 
@@ -96,6 +96,6 @@ class UserTest < ActiveSupport::TestCase
     archer.microposts.each do |post_unfollowed|
       assert_not michael.feed.include?(post_unfollowed)
     end
-  end  
+  end
 
 end

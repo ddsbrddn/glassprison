@@ -42,7 +42,6 @@ h1 {
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
-  text-align: center;
 }
 
 h2 {
@@ -147,7 +146,7 @@ aside {
 }
 
 .avatar {
-  max-width: 50px;
+  width: 50px;
   height: 50px;
 }
 .uploader {
@@ -158,22 +157,9 @@ aside {
   }
 }
 
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
-
-.gravatar_edit {
-  margin-top: 15px;
-}
-
 .avatar {
   float: left;
   margin-right: 10px;
-}
-
-.gravatar_edit {
-  margin-top: 15px;
 }
 
 .stats {
@@ -211,6 +197,10 @@ aside {
 }
 
 .users.follow {
+  padding: 0;
+}
+ul.users {
+  margin: 0;
   padding: 0;
 }
 
@@ -304,7 +294,7 @@ input {
     float: left;
     margin-right: 10px;
     margin-top: 5px;
-    max-width: 20px;
+    width: 20px;
     height: 20px;
   }
 }
@@ -403,6 +393,17 @@ background-color: #ededed;
   color: $gray-light;
   display: block;
   font-size: 12px;
+  margin-top: 10px;
+}
+ul.tools {
+  padding: 0;
+  li {
+    width: auto;
+    display: inline;
+    font-size: 11px;
+    line-height: 1;
+    color: #aaa;
+  }
 }
 ul.social {
   margin: 0;
@@ -415,5 +416,20 @@ ul.social {
       color: $gray-lighter;
     }
   }
+}
 
+
+.navbar-right img.avatar  {width: 20px;height: 20px;}
+.micropost .thumbnail {
+  border:none;
+  img {
+    float: left;
+      width: 28.648648648649%;
+      max-width: 106px;
+      margin-right: 15px;
+
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      border-radius: 2px;
+  }
 }

@@ -1,5 +1,5 @@
 <li>
-  <div class="col-md-2">
+  <div class="col-md-3">
     <%= link_to (image_tag user.avatar.url, class: 'avatar'), user if user.avatar? %>
     <%= link_to user.name, user %>
     <% if current_user.admin? && !current_user?(user) %>
@@ -32,11 +32,11 @@
 
   <% if false %>
   <div class="micropost">
-    <%= @microposts.each do |micropost| %>
-    <div class="thumbnail content">
-      <%= link_to (image_tag micropost.picture.url, class: "img-responsive"), micropost if micropost.picture? %>
-    </div>
+    <div class="thumbnail">
+    <% @microposts.last(2).each do |micropost| %>
+      <%= link_to (image_tag micropost.picture.url, class: "img-rounded"), micropost if micropost.picture? %>
     <% end %>
+    </div>
   </div>
   <% end %>
 

@@ -1,16 +1,16 @@
 <li id="micropost-<%= micropost.id %>" class="col-md-6 col-xs-6 post">
   <div class="thumbnail content">
     <%= link_to (image_tag micropost.picture.url, class: "img-responsive"), micropost if micropost.picture? %>
-    <span class="timestamp">
-      <span class="glyphicon glyphicon-comment"><%= micropost.comments.count %>
-      </span>
-      <span class="glyphicon glyphicon-heart"><%= micropost.get_likes.size %>
-      </span>
+    <ul class="tools">
+      <li class="glyphicon glyphicon-comment"><%= micropost.comments.count %>
+      </li>
+      <li class="glyphicon glyphicon-heart"><%= micropost.get_likes.size %>
+      </li>
       <% if current_user?(micropost.user) %>
         <%= link_to "delete", micropost, method: :delete,
                                          data: { confirm: "You sure?" } %>
       <% end %>
-    </span>
+    </ul>
   </div>
   <section class="user_info">
       <%= link_to (image_tag micropost.user.avatar, class: 'avatar'), micropost.user %>
