@@ -1,4 +1,6 @@
 class BlogsController < ApplicationController
+	before_action :logged_in_user, except: [:index, :show]
+	before_action :admin_user, only: [:new, :create, :destroy]
 
 	def index
 		@blogs = Blog.all.order('created_at DESC')
@@ -46,6 +48,11 @@ class BlogsController < ApplicationController
 	private
 	def blog_params
 		params.require(:blog).permit(:title, :body)
+	end
+
+	# Confirms an admin user.
+	def admin_user
+		redirect_to(root_url) unless current_user.admin?
 	end
 
 end

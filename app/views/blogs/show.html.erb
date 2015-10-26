@@ -2,7 +2,7 @@
 	<div class="col-md-8 col-md-offset-2">
 		<h3><%= @blog.title %></h3>
 
-		<p class="date">
+		<p class="timestamp">
 			Published <%= time_ago_in_words(@blog.created_at) %> ago <% if current_user.try(:admin?) && !current_user?(@user) %>| <%= link_to 'Edit', edit_blog_path(@blog) %> | <%= link_to 'Delete', blog_path(@blog), method: :delete, data: { confirm: "Are you sure?"} %><% end %>
 		</p>
 
@@ -15,7 +15,7 @@
       <% @blog_comments.each do |comment| %>
       <div class="comment user_info">
         <div class="media-left">
-          <%= link_to gravatar_for(comment.user, size: 50), comment.user %>
+          <%= link_to (image_tag comment.user.avatar, class: 'avatar'), comment.user %>
         </div>
         <div class="media-body">
           <h5 class="media-heading"><%= link_to comment.user.name, comment.user %></h5>
@@ -26,7 +26,7 @@
 			<% if logged_in? %>
 			<div class="comment user_info">
 				<div class="media-left">
-					<%= link_to gravatar_for(current_user, size: 50), current_user %>
+					<%= link_to (image_tag current_user.avatar, class: 'avatar'), current_user %>
 				</div>
 				<div class="media-body">
 					<h5 class="media-heading"><%= link_to current_user.name, current_user %></h5>
