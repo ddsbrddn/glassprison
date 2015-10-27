@@ -1,9 +1,31 @@
 <% provide(:title, "Help") %>
-<h1>Help</h1>
-<p>
-  Get help on the Ruby on Rails Tutorial at the
-  <a href="http://www.railstutorial.org/#help">Rails Tutorial help section</a>.
-  To get help on this sample app, see the
-  <a href="http://www.railstutorial.org/book"><em>Ruby on Rails Tutorial</em>
-  book</a>.
-</p>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div id="parature_content">
+      <div class="row">
+        <div id="knowledge" class="col-md-6">
+          <button type="button" class="btn btn-primary">
+            FREQUENTLY ANSWERED QUESTIONS
+          </button>
+          <p class="text-center">
+            Have a question? We have answers.
+          </p>
+        </div>
+        <div id="contact" class="col-md-6">
+          <button type="button" class="btn btn-primary">
+            CONTACT US
+          </button>
+          <p class="text-center">
+            Have a problems? Email our Help team.
+          </p>
+        </div>
+      </div>
+      <ul><h4><%= link_to "Common QS", help_path %> </h4>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Pinterest</a></li>
+        <li><a href="#">Youtube</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

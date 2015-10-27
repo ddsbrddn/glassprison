@@ -15,8 +15,8 @@
       </div>
       <% end %>
       <% if current_user.following.count == 0 %>
-      <h3 class="text-center">You aren’t following anyone yet.<br/>
-<small>Explore the links above to discover designs and artists.
+      <h3 class="intro text-center">You aren’t following anyone yet.<br/>
+<small>Explore the links above to discover designs and artists.<br/>
 The latest designs from artists you follow will appear here.</small></h3>
       <% else %>
        <h3>Design from people you've followed</h3>
@@ -26,9 +26,9 @@ The latest designs from artists you follow will appear here.</small></h3>
   </div>
 <% else %>
   <div class="center jumbotron">
-    <p>Share your inspiration and see what's other inspiring others</p>
+    <p>Share your inspiration and see what's other inspiring others
     <%= link_to "Learn", about_path, class: "btn btn-default" %>
-    <%= link_to "Sign up now!", signup_path, class: "btn btn-primary" %>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-primary" %></p>
   </div>
   <div class="container">
     <div class="col-md-8 col-md-offset-2">
