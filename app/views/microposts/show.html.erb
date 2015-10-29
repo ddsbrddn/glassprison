@@ -35,10 +35,10 @@
           <% end %>
 
 
-          <button type="button" class="btn btn-default btn-sm">
-            <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <%= link_to "Like", like_micropost_path(@micropost), method: :get %>
-          </button>
-          <span><%= @micropost.get_upvotes.size %> Likes</span>
+         <%= button_to like_micropost_path(@micropost), class: 'btn btn-default btn-sm', method: :get do %>
+         <span class="glyphicon glyphicon-heart"> Like</span>
+         <% end %>
+         <span><%= @micropost.get_upvotes.size %> Likes</span>
 
           <span class="timestamp">
             <p>
