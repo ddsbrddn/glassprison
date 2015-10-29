@@ -1,0 +1,28 @@
+<% form_for(@product) do |f| %>
+	<%= f.error_messages %>
+
+	<div class="form-group">
+		<%= f.label "Title" %>
+		<%= f.text_field :title %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label "Description" %>
+		<%= f.text_area :description, :rows => 6 %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :image_url %>
+		<%= f.text_field :image_url %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label "Price" %>
+		<%= f.text_field :price %>
+	</div>
+
+	<%= f.submit "Edit" %>
+<% end %>
+
+<%= link_to 'Show', @product %>
+<%= link_to 'Back', product_path %>

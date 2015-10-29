@@ -11,14 +11,17 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
+  #get 'shop'    => 'products#index'
   resources :users do
     member do
       get :following, :followers
     end
   end
 
+  resources :products
+
   resources :blogs do
-    resources :blog_comments    
+    resources :blog_comments
   end
 
   resources :microposts, only: [:create, :destroy, :show, :index] do
