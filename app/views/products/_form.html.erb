@@ -1,0 +1,22 @@
+<%= form_for @product do |f| %>
+	<% if @product.errors.any? %>
+		<div id="errors">
+			<h4><%= pluralize(@product.errors.count, "error") %> prevented this post from saving</h4>
+			<ul>
+				<% @product.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<div class="form-group">
+		<%= f.label "Title" %>
+		<%= f.text_field :title %>
+	</div>
+	<div class="form-group">
+		<%= f.label "Description" %>
+		<%= f.text_area :description %>
+	</div>
+
+	<%= f.submit "Publish Product", class: "btn btn-primary" %>
+<% end %>

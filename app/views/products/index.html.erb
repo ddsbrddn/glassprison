@@ -1,14 +1,14 @@
-<h1>This Product Index</h1>
+	<h1>Product Index</h1>
 
-<% for product in @products -%>
-	<div class="entry">
-		<%= image_tag(product.image_url) %>
-		<h3><%=h product.title %></h3>
-		<%= product.description %>
-		<div class="price-line">
-			<span class="price"><%= product.price %></span>
-		</div>
-	</div>
-<% end %>
+		<% for product in @products -%>
+			<div class="entry">
+				<%= image_tag(product.image_url) %>
+				<h3><%= link_to product.title, product %></h3>
+				<%= product.description %>
+				<div class="price-line">
+					<span class="price"><%= product.price %></span>
+				</div>
+			</div>
+		<% end %>
 
-<%= link_to "New", new_product_path, class: 'btn btn-default' %>
+		<%= link_to "New", new_product_path, class: 'btn btn-default' %>

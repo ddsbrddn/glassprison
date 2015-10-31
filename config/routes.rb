@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'store/index'
+
   get 'sessions/new'
 
   root             'static_pages#home'
@@ -11,13 +13,16 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
-  #get 'shop'    => 'products#index'
+  get 'shop'    => 'store#index'
   resources :users do
     member do
       get :following, :followers
     end
   end
 
+  resources :orders
+  resources :line_items
+  resources :carts
   resources :products
 
   resources :blogs do

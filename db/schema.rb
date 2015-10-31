@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029163808) do
+ActiveRecord::Schema.define(version: 20151031090413) do
 
   create_table "blog_comments", force: :cascade do |t|
     t.text     "content"
@@ -31,6 +31,11 @@ ActiveRecord::Schema.define(version: 20151029163808) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "comments", force: :cascade do |t|
     t.text     "content"
     t.integer  "micropost_id"
@@ -41,6 +46,16 @@ ActiveRecord::Schema.define(version: 20151029163808) do
 
   add_index "comments", ["micropost_id"], name: "index_comments_on_micropost_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "line_items", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "cart_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id"
+  add_index "line_items", ["product_id"], name: "index_line_items_on_product_id"
 
   create_table "microposts", force: :cascade do |t|
     t.text     "content"
@@ -53,6 +68,15 @@ ActiveRecord::Schema.define(version: 20151029163808) do
 
   add_index "microposts", ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
   add_index "microposts", ["user_id"], name: "index_microposts_on_user_id"
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "name"
+    t.text     "address"
+    t.string   "email"
+    t.string   "pay_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "products", force: :cascade do |t|
     t.string   "title"
