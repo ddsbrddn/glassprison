@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
 	before_action :logged_in_user, except: [:index, :show]
-	before_action :admin_user, only: [:new, :create, :destroy]
+	before_action :admin_user, only: [:new, :create, :edit, :destroy]
 
 	def index
 		@blogs = Blog.all.order('created_at DESC')
