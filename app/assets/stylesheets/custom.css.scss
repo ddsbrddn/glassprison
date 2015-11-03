@@ -11,15 +11,15 @@ $gray-medium-light: #eaeaea;
   box-sizing:         border-box;
 }
 
-/* universal */
+/* universalsection {
+  overflow: auto;
+} */
 
 body {
   background-color: #ffffff;
 }
 
-section {
-  overflow: auto;
-}
+
 
 textarea {
   resize: vertical;
