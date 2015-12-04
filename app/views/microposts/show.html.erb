@@ -16,7 +16,26 @@
           <div class="author-block">
             <section class="user_info">
                 <%= link_to (image_tag @micropost.user.avatar, class: 'avatar'), @micropost.user %>
-                <span class="user"><%= link_to @micropost.user.name, @micropost.user %></span>         </section>
+                <span class="user"><%= link_to @micropost.user.name, @micropost.user %></span>     </section>
+
+                <% unless current_user?(@micropost.user) %>
+                  <div id="follow_form">
+                  <% if current_user.following?(@micropost.user) %>
+
+                  <%= form_for(current_user.active_relationships.find_by(followed_id: @micropost.user.id),
+                               html: { method: :delete },
+                               remote: true) do |f| %>
+                    <%= f.submit "Unfollow", class: "btn btn-xs" %>
+                  <% end %>
+                  <% else %>
+                  <%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
+                    <div><%= hidden_field_tag :followed_id, @micropost.user.id %></div>
+                    <%= f.submit "Follow", class: "btn btn-primary btn-xs" %>
+                  <% end %>
+
+                  <% end %>
+                  </div>
+                <% end %>
 
           </div>
 
