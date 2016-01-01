@@ -1,10 +1,6 @@
 <%= form_for(@micropost, html: { multipart: true }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <section>
-        <h4>Submitting To</h4>
-        <p><a href="#"><img alt="Threadless" width="290" src="https://cdn-media.threadless.com/challenges/bt.jpg"></a></p>
-  </section>
-  <hr>
+
   <section class="picture">
         <h4>ADD YOUR IMAGE</h4>
         <p>Choose your image file to display your design. Your image must be in JPG format (RGB mode not CMYK), 1200 pixels wide x 1200 pixels tall.</p>
