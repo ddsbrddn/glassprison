@@ -107,9 +107,6 @@ p {
 
 footer {
   background: #e5e5e5;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
   margin-top: 60px;
   padding-bottom: 45px;
   padding-top: 30px;
@@ -370,7 +367,10 @@ background-color: #fff;
 border-bottom: 1px solid #eee;
 padding: 30px;
 }
-.intro { padding: 60px 0; }
+.intro {
+  padding: 60px 0;
+  min-height: 290px;
+}
 #posts .post {
   margin-bottom: 30px;
 }
