@@ -2,26 +2,6 @@
   <div class="container">
     <%= link_to "Glass Prison", root_path, id: "logo" %>
     <nav>
-      <ul id="shop" class="nav navbar-nav navbar-left">
-        <li class="dropdown"><%= link_to "PARTICIPATE", microposts_path %>
-          <ul class="dropdown-menu">
-            	<li><%= link_to "SUBMIT A DESIGN", submit_path %></li>
-            	<li><%= link_to "SCORE A DESIGNS", microposts_path %></li>
-          </ul>
-        </li>
-        <li class="dropdown"><%= link_to "BLOG", blogs_path %>
-          <ul class="dropdown-menu">
-            <li><%= link_to "READ OUR BLOG", blogs_path %> </li>
-            <li role="separator" class="divider"></li>
-            <li class="dropdown-header">ON THE INTERWEBS</li>
-
-            <li><a href="#"><i class="fa fa-facebook">  Facebook</i></a></li>
-            <li><a href="#"><i class="fa fa-twitter">  Twitter</i></a></li>
-            <li><a href="#"><i class="fa fa-pinterest">  Pinterest</i></a></li>
-            <li><a href="#"><i class="fa fa-youtube">  Youtube</i></a></li>
-          </ul>
-        </li>
-	  </ul>
       <ul class="nav navbar-nav navbar-right">
 
         <% if logged_in? %>
