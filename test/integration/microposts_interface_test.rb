@@ -17,8 +17,9 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_select 'div#error_explanation'
     # Valid submission
     content = "This micropost really ties the room together"
+    avatar = page.find('#profile-avatar')['src'].should have_content 'default.png'
     assert_difference 'Micropost.count', 1 do
-      post microposts_path, micropost: { content: content }
+      post microposts_path, micropost: { content: content, avatar: avatar }
     end
     assert_redirected_to root_url
     follow_redirect!

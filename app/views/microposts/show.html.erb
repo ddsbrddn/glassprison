@@ -18,6 +18,8 @@
                 <%= link_to (image_tag @micropost.user.avatar, class: 'avatar'), @micropost.user %>
                 <span class="user"><%= link_to @micropost.user.name, @micropost.user %></span>     </section>
 
+                <%
+=begin %>
                 <% unless current_user?(@micropost.user) %>
                   <div id="follow_form">
                   <% if current_user.following?(@micropost.user) %>
@@ -36,6 +38,8 @@
                   <% end %>
                   </div>
                 <% end %>
+                <%
+=end %>
 
           </div>
 
